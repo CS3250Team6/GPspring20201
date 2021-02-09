@@ -1,27 +1,44 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
-public class GroupProject {
 
-	public static void main(String[] args) throws FileNotFoundException {
-		// TODO Auto-generated method stub
-		
-		Scanner sc = new Scanner(new File("inventory_team6.csv"));
-		sc.useDelimiter(",");
-		String[][] data = new String[42776][6];
-		int i = 0;
-		int j = 0;
-		while (sc.hasNext()) {
-			j = 0;
-			i++;
+class GroupProject {
+	public static void main(String[] args) throws IOException {
 
-			while (j < 5) {
-				j++;
-				data[i][j] = sc.next();
+		// open file input stream
+		BufferedReader reader = new BufferedReader(new FileReader("inventory_team6.csv"));
+
+		// read file line by line
+		String line = null;
+		Scanner scanner = null;
+		int index = 0;
+		List<String[]> csvData = new ArrayList<String[]>();
+
+		while ((line = reader.readLine()) != null) {
+			String line2[] = new String[5];
+			scanner = new Scanner(line);
+			scanner.useDelimiter(",");
+			while (scanner.hasNext()) {
+				String data = scanner.next();
+				if (index == 0)
+					line2[0] = data.toString();
+				else if (index == 1)
+					line2[1] = data.toString();
+				else if (index == 2)
+					line2[2] = data.toString();
+				else if (index == 3)
+					line2[3] = data.toString();
+				else if (index == 4)
+					line2[4] = data.toString();
+				else
+					System.out.println("invalid data::" + data);
+				index++;
 			}
+			index = 0;
+			csvData.add(line2);
 		}
-		System.out.println( Arrays.deepToString(data));
+
+		System.out.println(Arrays.deepToString(csvData.toArray()));
+
 	}
 }
