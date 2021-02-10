@@ -89,5 +89,6 @@ class GroupProject {
 		adder(reader());
 		
 }
+}
 
 }
