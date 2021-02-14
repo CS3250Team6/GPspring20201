@@ -17,6 +17,30 @@ class GroupProject {
 			System.exit(0);
 		}
 	}
+    //***********************************************
+    public static remove (int dataIndex) {
+	String[] result = null;
+	if ((dataIndex >= 1) && (dataIndex <= userInput)) {
+	    // Assertion: !isEmpty()
+	    if (dataIndex == 1)  // Case 1: Remove first entry
+		result = index1.readLine(); // Save entry to be removed
+	    index1 = index1.readNextIndex(); // Remove entry
+	    else {
+		Index indexBefore =readLine(dataIndex - 1);
+		Index indexToRemove = indexBefore.readNextIndex();
+		result = indexTORemove.readLine(); // save entry to be removed
+		Index indexAfter = indexToRemove.readNextIndex();
+		indexBefore.readNextIndex(indexAfter); // Remove entry
+	    } // End if
+	    userInput---;  // update count
+	    return result;   // Return removed entry
+	}
+	else
+	    throw new IndexOutOfBoundsException(" Illegal Index given to remove operation.")
+		} // End Remove
+
+    //***************************************************************
+	
 	
 	public static void maniplation(List<String[]> csvData) throws IOException {
 		String line = null;
