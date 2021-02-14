@@ -39,6 +39,19 @@ class GroupProject {
 			}
 			csvData.add(line2);
 		}
+		
+		        /*
+        // I am having a hard time figuring out how to access the data in the .csv file
+        else if (userin.equals("Search")) {
+            System.out.println("What is the ID you are looking for?");
+            String id = sysin.next();
+            for (int i = 0; i < line.length(); i++) {
+                if (line.line2[0]) {
+                    System.out.println(line[i].toString());
+                }
+            }
+        } */
+		
 		 System.out.println(Arrays.deepToString(csvData.toArray())); 
 	}
 	public static List<String[]>  reader () throws IOException{
