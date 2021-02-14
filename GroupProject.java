@@ -2,7 +2,12 @@ import java.io.*;
 import java.util.*;
 
 class GroupProject {
+    
+    /*@param user  checking user securrity
+      @param pass  Checking user password
+    */
 	private static void userpass(String user, String pass) {
+	    
 		if (user.equals("user") && pass.equals("pass")) {
 
 			System.out.println("you are an authorized user");
