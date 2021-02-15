@@ -1,4 +1,4 @@
-import java.io.*;
+import java.io.*
 import java.util.*;
 
 class GroupProject {
@@ -33,7 +33,7 @@ class GroupProject {
 			BufferedReader userinput = new BufferedReader(new InputStreamReader(System.in));
 			line = userinput.readLine();
 			scanner = new Scanner(line);
-			String line2[] = new String[6];
+			String line2[] = new String[5];
 			scanner.useDelimiter(",");
 			if (line != null) {
 				while ((scanner.hasNext())) {
@@ -65,7 +65,7 @@ class GroupProject {
             String id = idCheck.next();
             for (int i = 0; i < csvData.size(); i++) {
 
-                String line2[] = new String[6];
+                String line2[] = new String[5];
                 line2 = csvData.get(i);
                 if (id.equals(line2[0])) {
                     System.out.println("Product ID: " + line2[0]+ ", " + "In Stock: " + line2[1] + ", " +
@@ -98,7 +98,7 @@ class GroupProject {
 		while ((line = reader.readLine()) != null) {
 			scanner = new Scanner(line);
 			scanner.useDelimiter(",");
-			String line2[] = new String[6];
+			String line2[] = new String[5];
 			while (scanner.hasNext()) {
 				String data = scanner.next();
 				if (index == 0)
