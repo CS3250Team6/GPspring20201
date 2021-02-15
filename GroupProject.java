@@ -40,17 +40,21 @@ class GroupProject {
 			csvData.add(line2);
 		}
 		
-		        /*
-        // I am having a hard time figuring out how to access the data in the .csv file
-        else if (userin.equals("Search")) {
+		        else if (userin.equals("Search")) {
             System.out.println("What is the ID you are looking for?");
-            String id = sysin.next();
-            for (int i = 0; i < line.length(); i++) {
-                if (line.line2[0]) {
-                    System.out.println(line[i].toString());
+            Scanner idCheck = new Scanner(System.in);
+            String id = idCheck.next();
+            for (int i = 0; i < csvData.size(); i++) {
+
+                String line2[] = new String[6];
+                line2 = csvData.get(i);
+                if (id.equals(line2[0])) {
+                    System.out.println("Product ID: " + line2[0]+ ", " + "In Stock: " + line2[1] + ", " +
+                     "Wholesale Cost: " + "$" + line2[2] + ", " + "Sale Price: " + "$" + line2[3] + ", " +
+                     "Supplier ID: " + line2[4]);
                 }
             }
-        } */
+        }
 		
 		 System.out.println(Arrays.deepToString(csvData.toArray())); 
 	}
