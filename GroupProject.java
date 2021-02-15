@@ -74,6 +74,60 @@ class GroupProject {
                 }
             }
         }
+	
+	        else if (userin.equals("Update")) {
+            System.out.println("What is the ID of the item you would like to update?");
+            Scanner idCheck = new Scanner(System.in);
+            String id = idCheck.next();
+            for (int i = 0; i < csvData.size(); i++) {
+
+                String line2[] = new String[6];
+                line2 = csvData.get(i);
+                if (id.equals(line2[0])) {
+                    System.out.println("What would you like to update?\n Enter ID to update the items ID \n" +
+                            "Enter Stock to update how many units are in stock \n Enter Wholesale to update the items" +
+                            "wholesale cost \n Enter Sale to update the items sales price \n enter Supplier to update" +
+                            "the sellers ID");
+                    Scanner tempScanner = new Scanner(System.in);
+                    String tempUpdate = tempScanner.next();
+                    if (tempUpdate.equals("ID")) {
+                        System.out.println("What is the new ID?");
+                        Scanner tempScan = new Scanner(System.in);
+                        String tempData = tempScan.next();
+                        line2[0] = "";
+                        line2[0] = tempData;
+                    }
+                    else if (tempUpdate.equals("Stock")) {
+                        System.out.println("What is the new Stock?");
+                        Scanner tempScan = new Scanner(System.in);
+                        String tempData = tempScan.next();
+                        line2[1] = "";
+                        line2[1] = tempData;
+                    }
+                    else if (tempUpdate.equals("Wholesale")) {
+                        System.out.println("What is the new Wholesale price?");
+                        Scanner tempScan = new Scanner(System.in);
+                        String tempData = tempScan.next();
+                        line2[2] = "";
+                        line2[2] = tempData;
+                    }
+                    else if (tempUpdate.equals("Sale")) {
+                        System.out.println("What is the new sale price?");
+                        Scanner tempScan = new Scanner(System.in);
+                        String tempData = tempScan.next();
+                        line2[3] = "";
+                        line2[3] = tempData;
+                    }
+                    else if (tempUpdate.equals("Supplier")) {
+                        System.out.println("What is the new supplier ID?");
+                        Scanner tempScan = new Scanner(System.in);
+                        String tempData = tempScan.next();
+                        line2[4] = "";
+                        line2[4] = tempData;
+                    }
+                }
+                }
+            }
 		// System.out.println(Arrays.deepToString(csvData.toArray()));
 	}
 
