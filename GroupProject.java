@@ -128,7 +128,22 @@ class GroupProject {
                 }
                 }
             }
-		// System.out.println(Arrays.deepToString(csvData.toArray()));
+		else if (userin.equalsIgnoreCase("Delete")) {
+            		System.out.println("What row would you like to delete");
+            		Scanner Rowline = new Scanner(System.in);
+            		String Row = Rowline.next();
+            			for (int i = 0; i < csvData.size(); i++) {
+
+                			String line2[] = new String[5];
+                			line2 = csvData.get(i);
+                			if (Row.equals(line2[0])) {
+
+                    			csvData.remove(i);
+
+                    			System.out.println( line2[0]+ "" + "Has been deleted" );
+                }
+            }
+        }	// System.out.println(Arrays.deepToString(csvData.toArray()));
 	}
 
 	public static List<String[]> reader() throws IOException {
