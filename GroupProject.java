@@ -1,5 +1,8 @@
 import java.io.*;
 import java.util.*;
+import java.awt.color;
+import javax.swing.JFrame;
+import javax.swing.ImageIcon;
 
 class GroupProject {
     
@@ -151,6 +154,26 @@ class GroupProject {
 		String password = sc.next();
 		userpass(username, password);
 		maniplation(reader());
+		
+               //JFrame = is a GUi window to add componenets to
+              JFrame frame = new JFrame(); // Creat a frame
+         
+              frame.setTitle("JFrame title goes here"); // This set title of frame
+              frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // exit out of application
+              frame.setSize(420,420); //Sets the x-dimention and y- dimention of frmae
+              frame.setVisible(true); //Make frmae visible
+         
+         
+              // How to change logo icon- download first and save with the file name
+              ImageIcon image = new ImageIcon("logo.png"); // Creat the logo icon
+              // logo.icon is file name or we can use the path.we need to import javax.swing.ImageIcon
+              frame.setIconImage(image.getImage());// Change icon of frame
+             // Now lets change the background color
+             //frame.getContentPane().setBackground(color.green);// or
+             frame.getContentPane().setBackground(new color(255,255,255));
+             // change color of background 0,0,0
+             // is black 255,255,255 is white also we can put any random numbers too
+
 
 	}
 }
