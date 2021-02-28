@@ -106,70 +106,93 @@ class GroupProject {
 			}
 		}
 
-		else if (userin.equals("Update")) {
-			System.out.println("What is the ID of the item you would like to update?");
-			Scanner idCheck = new Scanner(System.in);
-			String id = idCheck.next();
-			for (int i = 0; i < csvData.size(); i++) {
 
-				String line2[] = new String[6];
-				line2 = csvData.get(i);
-				if (id.equals(line2[0])) {
-					System.out.println("What would you like to update?\n Enter ID to update the items ID \n"
-							+ "Enter Stock to update how many units are in stock \n Enter Wholesale to update the items"
-							+ "wholesale cost \n Enter Sale to update the items sales price \n enter Supplier to update"
-							+ "the sellers ID");
-					Scanner tempScanner = new Scanner(System.in);
-					String tempUpdate = tempScanner.next();
-					if (tempUpdate.equals("ID")) {
-						System.out.println("What is the new ID?");
-						Scanner tempScan = new Scanner(System.in);
-						String tempData = tempScan.next();
-						line2[0] = "";
-						line2[0] = tempData;
-					} else if (tempUpdate.equals("Stock")) {
-						System.out.println("What is the new Stock?");
-						Scanner tempScan = new Scanner(System.in);
-						String tempData = tempScan.next();
-						line2[1] = "";
-						line2[1] = tempData;
-					} else if (tempUpdate.equals("Wholesale")) {
-						System.out.println("What is the new Wholesale price?");
-						Scanner tempScan = new Scanner(System.in);
-						String tempData = tempScan.next();
-						line2[2] = "";
-						line2[2] = tempData;
-					} else if (tempUpdate.equals("Sale")) {
-						System.out.println("What is the new sale price?");
-						Scanner tempScan = new Scanner(System.in);
-						String tempData = tempScan.next();
-						line2[3] = "";
-						line2[3] = tempData;
-					} else if (tempUpdate.equals("Supplier")) {
-						System.out.println("What is the new supplier ID?");
-						Scanner tempScan = new Scanner(System.in);
-						String tempData = tempScan.next();
-						line2[4] = "";
-						line2[4] = tempData;
-					}
-				}
-			}
-		} else if (userin.equalsIgnoreCase("Delete")) {
-			System.out.println("What row would you like to delete");
-			Scanner Rowline = new Scanner(System.in);
-			String Row = Rowline.next();
-			for (int i = 0; i < csvData.size(); i++) {
+		        else if (userin.equals("Search")) {
+            System.out.println("What is the ID you are looking for?");
+            Scanner idCheck = new Scanner(System.in);
+            String id = idCheck.next();
+            for (int i = 0; i < csvData.size(); i++) {
 
-				String line2[] = new String[5];
-				line2 = csvData.get(i);
-				if (Row.equals(line2[0])) {
+                String line2[] = new String[5];
+                line2 = csvData.get(i);
+                if (id.equals(line2[0])) {
+                    System.out.println("Product ID: " + line2[0]+ ", " + "In Stock: " + line2[1] + ", " +
+                     "Wholesale Cost: " + "$" + line2[2] + ", " + "Sale Price: " + "$" + line2[3] + ", " +
+                     "Supplier ID: " + line2[4]);
+                }
+            }
+        }
+	
+	        else if (userin.equals("Update")) {
+            System.out.println("What is the ID of the item you would like to update?");
+            Scanner idCheck = new Scanner(System.in);
+            String id = idCheck.next();
+            for (int i = 0; i < csvData.size(); i++) {
 
-					csvData.remove(i);
+                String line2[] = new String[6];
+                line2 = csvData.get(i);
+                if (id.equals(line2[0])) {
+                    System.out.println("What would you like to update?\n Enter ID to update the items ID \n" +
+                            "Enter Stock to update how many units are in stock \n Enter Wholesale to update the items" +
+                            "wholesale cost \n Enter Sale to update the items sales price \n enter Supplier to update" +
+                            "the sellers ID");
+                    Scanner tempScanner = new Scanner(System.in);
+                    String tempUpdate = tempScanner.next();
+                    if (tempUpdate.equals("ID")) {
+                        System.out.println("What is the new ID?");
+                        Scanner tempScan = new Scanner(System.in);
+                        String tempData = tempScan.next();
+                        line2[0] = "";
+                        line2[0] = tempData;
+                    }
+                    else if (tempUpdate.equals("Stock")) {
+                        System.out.println("What is the new Stock?");
+                        Scanner tempScan = new Scanner(System.in);
+                        String tempData = tempScan.next();
+                        line2[1] = "";
+                        line2[1] = tempData;
+                    }
+                    else if (tempUpdate.equals("Wholesale")) {
+                        System.out.println("What is the new Wholesale price?");
+                        Scanner tempScan = new Scanner(System.in);
+                        String tempData = tempScan.next();
+                        line2[2] = "";
+                        line2[2] = tempData;
+                    }
+                    else if (tempUpdate.equals("Sale")) {
+                        System.out.println("What is the new sale price?");
+                        Scanner tempScan = new Scanner(System.in);
+                        String tempData = tempScan.next();
+                        line2[3] = "";
+                        line2[3] = tempData;
+                    }
+                    else if (tempUpdate.equals("Supplier")) {
+                        System.out.println("What is the new supplier ID?");
+                        Scanner tempScan = new Scanner(System.in);
+                        String tempData = tempScan.next();
+                        line2[4] = "";
+                        line2[4] = tempData;
+                    }
+                }
+                }
+            }
+		else if (userin.equalsIgnoreCase("Delete")) {
+            		System.out.println("What row would you like to delete");
+            		Scanner Rowline = new Scanner(System.in);
+            		String Row = Rowline.next();
+            			for (int i = 0; i < csvData.size(); i++) {
 
-					System.out.println(line2[0] + "" + "Has been deleted");
-				}
-			}
-		} // System.out.println(Arrays.deepToString(csvData.toArray()));
+                			String line2[] = new String[5];
+                			line2 = csvData.get(i);
+                			if (Row.equals(line2[0])) {
+
+                    			csvData.remove(i);
+
+                    			System.out.println( line2[0]+ "" + "Has been deleted" );
+                }
+            }
+        }	// System.out.println(Arrays.deepToString(csvData.toArray()));
+
 	}
 
 	public static List<String[]> reader() throws IOException {
@@ -399,7 +422,5 @@ class GroupProject {
 				}
 			}
 
-		}
 
-	}
-}
+		}
