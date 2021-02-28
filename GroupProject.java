@@ -3,6 +3,9 @@ import java.util.*;
 import java.awt.color;
 import javax.swing.JFrame;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
 
 class GroupProject {
     
@@ -20,29 +23,6 @@ class GroupProject {
 			System.exit(0);
 		}
 	}
-    //***********************************************
-    public static remove (int dataIndex) {
-	String[] result = null;
-	if ((dataIndex >= 1) && (dataIndex <= userInput)) {
-	    // Assertion: !isEmpty()
-	    if (dataIndex == 1)  // Case 1: Remove first entry
-		result = index1.readLine(); // Save entry to be removed
-	    index1 = index1.readNextIndex(); // Remove entry
-	    else {
-		Index indexBefore =readLine(dataIndex - 1);
-		Index indexToRemove = indexBefore.readNextIndex();
-		result = indexTORemove.readLine(); // save entry to be removed
-		Index indexAfter = indexToRemove.readNextIndex();
-		indexBefore.readNextIndex(indexAfter); // Remove entry
-	    } // End if
-	    userInput---;  // update count
-	    return result;   // Return removed entry
-	}
-	else
-	    throw new IndexOutOfBoundsException(" Illegal Index given to remove operation.")
-		} // End Remove
-
-    //***************************************************************
 	
 	
 	public static void maniplation(List<String[]> csvData) throws IOException {
@@ -154,26 +134,48 @@ class GroupProject {
 		String password = sc.next();
 		userpass(username, password);
 		maniplation(reader());
-		
-               //JFrame = is a GUi window to add componenets to
-              JFrame frame = new JFrame(); // Creat a frame
-         
-              frame.setTitle("JFrame title goes here"); // This set title of frame
-              frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // exit out of application
-              frame.setSize(420,420); //Sets the x-dimention and y- dimention of frmae
-              frame.setVisible(true); //Make frmae visible
-         
-         
-              // How to change logo icon- download first and save with the file name
-              ImageIcon image = new ImageIcon("logo.png"); // Creat the logo icon
-              // logo.icon is file name or we can use the path.we need to import javax.swing.ImageIcon
-              frame.setIconImage(image.getImage());// Change icon of frame
-             // Now lets change the background color
-             //frame.getContentPane().setBackground(color.green);// or
-             frame.getContentPane().setBackground(new color(255,255,255));
-             // change color of background 0,0,0
-             // is black 255,255,255 is white also we can put any random numbers too
+		JFrame frame = new HandleActionEventsForJButton();
 
-
-	}
+	public class HandleActionEventsForJButton extends JFrame implements ActionListener {
+   
+   public HandleActionEventsForJButton() {
+    // set flow layout for the frame
+      this.getContentPane().setLayout(new FlowLayout());
+    
+      JButton button1 = new JButton("add Data");
+      JButton button2 = new JButton("No");
+    
+    //set action listeners for buttons
+      button1.addActionListener(this);
+      button2.addActionListener(this);
+    
+    //Add buttons to the frame
+      add(button1);
+      add(button2);
+   }
+   @Override
+   public void actionPerformed(ActionEvent ae) {
+      String action = ae.getActionCommand();
+      if (action.equals("add Data")) {
+         System.out.println("Yes Button Pressed!");
+      }
+      else if (action.equals("N0")) {
+         System.out.println("No Button Pressed!");
+      }
+   
+   }
+   private static void creatAndShowGUI() {
+   // Create and set up the windo.
+      JFrame frame = new HandleActionEventsForJButton();
+   
+   // Display the window
+      frame.pack();
+      frame.setVisible(true);
+      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+   }
+   
+   }
+}
+	
+               
 }
