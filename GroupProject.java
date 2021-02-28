@@ -1,43 +1,47 @@
 import java.io.*;
 import java.util.*;
-import java.util.List;
-import java.util.*;
-import javax.swing.*;
-import java.awt.*;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 class GroupProject {
-	private static boolean userpass(String exist, String user, String pass) throws IOException {
-		List<String[]> userpass = passdoc("passdoc.csv");
-		if (exist.toLowerCase().contains("yes")) {
-			userpass = passdoc("passdoc.csv");
-			System.out.println(Arrays.deepToString(userpass.toArray()));
-			int username;
-			int password ;
-			username = userpass.indexOf(user);
-			password = userpass.indexOf(pass);
-			System.out.println(username);
-			System.out.println(password);
-			
-			if ((username == password) == true) {
-				System.out.println("yep");
-				return true;
-			} else {
-				System.out.println("not a user");
-				return false;
-			}
-		} else if (exist.toLowerCase().contains("no")) {
-			String[] temp = new String[2];
-			temp[0] = user;
-			temp[1] = pass;
-			userpass.add(temp);
-			CSVWRITER("passdoc.csv", userpass);
-		}else {
-			System.out.println("error");
-			System.exit(1);
-		}
-		return false;
 
-	}
+		private static boolean userpass(String exist, String user, String pass) throws IOException {
+			List<String[]> userpass = passdoc("passdoc.csv");
+			if (exist.toLowerCase().contains("yes")) {
+				userpass = passdoc("passdoc.csv");
+				System.out.println(Arrays.deepToString(userpass.toArray()));
+				int username;
+				int password ;
+				username = userpass.indexOf(user);
+				password = userpass.indexOf(pass);
+				System.out.println(username);
+				System.out.println(password);
+				
+				if ((username == password) == true) {
+					System.out.println("yep");
+					return true;
+				} else {
+					System.out.println("not a user");
+					return false;
+				}
+			} else if (exist.toLowerCase().contains("no")) {
+				String[] temp = new String[2];
+				temp[0] = user;
+				temp[1] = pass;
+				userpass.add(temp);
+				CSVWRITER("passdoc.csv", userpass);
+			}else {
+				System.out.println("error");
+				System.exit(1);
+			}
+			return false;
+
+		}
+	
 
 	public static void maniplation(List<String[]> csvData) throws IOException {
 		String line = null;
@@ -298,7 +302,9 @@ class GroupProject {
 	}
 
 	public static void main(String[] args) throws IOException {
+
 		boolean cont = true;
+		boolean cont2 = true;
 		while (cont) {
 			Scanner sc = new Scanner(System.in);
 			System.out.println("do you have an existing account? (yes,no)");
@@ -310,7 +316,7 @@ class GroupProject {
 			String password = sc.next();
 			System.out.println(password);
 			if (userpass(exist, username, password)) {
-
+				while(cont2) {
 				JFrame frame = new JFrame();
 				frame.setSize(500, 500);
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -373,6 +379,16 @@ class GroupProject {
 				frame.add(updateSuplierID);
 				frame.add(pane);
 				frame.setVisible(true);
+				System.out.println("do you want to do something else");
+				String temp = sc.next();
+				if (temp.equals("yes")) {
+					cont2 =true;
+				}
+				else {
+					cont2 = false;
+					System.exit(1);
+				}
+				}
 			} else {
 				System.out.println("something went wrong or you just created an account do you wish to try again?");
 				String temp = sc.next();
