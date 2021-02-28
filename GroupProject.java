@@ -278,6 +278,27 @@ class GroupProject {
             JTextField deleteSearch = new JTextField("Enter Sale Price");
             deleteSearch.setBounds(30, 280, 100, 20);
             frame.add(deleteSearch);
+		
+		delete.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+
+                    String[] options = {"Yes", "No"};
+                    int result = JOptionPane.showOptionDialog(frame,"Are you sure you want to continue and Delete?","Confirmation",
+                        JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE,null,options,options[0]
+
+                    );
+                    if(result==JOptionPane.YES_OPTION) {
+                        label.setText("Succesfully Deleted");
+                    }else if (result == JOptionPane.NO_OPTION){
+                        label.setText("");
+                    }else{
+                        label.setText("Exit");
+                    }
+
+                }
+            });
+		
 
             JButton update = new JButton("Update");
             update.setBounds(30, 320, 100, 20);
