@@ -373,8 +373,28 @@ class GroupProject {
 				frame.add(searchBar);
 				JTextArea results = new JTextArea("Results");
 				results.setBounds(30, 220, 100, 20);
-				frame.add(results);
+						
+				search.addActionListener(new ActionListener() {
+               			 	@Override
+               			 public void actionPerformed(ActionEvent e) {
+                   		 	for (int i=0; i<ReadcsvData.size();i++)
+                   		 {
+                      		  	String line2[] = new String[5];
+                      		 	 line2 = ReadcsvData.get(i);                            
+                       		 	if (line2[0].equals(searchBar.getText()))
+                        		{
+                            	JOptionPane.showMessageDialog(frame,"ID = "+line2[0] + "\nQuantity = "+ line2[1]
+                                    + "\nWholesale Cost = " + line2[2]
+                                    + "\nSale Price = " + line2[3]
+                                    + "\nSupplier ID = " + line2[4]);                    
+                     		   }
+                 	   }
+               	 }
+            });            	
+						
+					frame.add(results);
 
+					
 				JButton delete = new JButton("Delete");
 				delete.setBounds(30, 260, 100, 20);
 				frame.add(delete);
