@@ -1,5 +1,11 @@
 import java.io.*;
 import java.util.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
+import javax.swing.*;
+
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -8,6 +14,12 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 class GroupProject {
+	
+	public static List<String[]> ReadcsvData;
+    public GroupProject(List<String[]> ReadcsvData) {
+        ReadcsvData = new ArrayList<String[]>();;
+    }
+	
 
 		private static boolean userpass(String exist, String user, String pass) throws IOException {
 			List<String[]> userpass = passdoc("passdoc.csv");
@@ -44,6 +56,7 @@ class GroupProject {
 	
 
 	public static void maniplation(List<String[]> csvData) throws IOException {
+		ReadcsvData = csvData; 
 		String line = null;
 		Scanner scanner = null;
 		int index = 0;
@@ -373,6 +386,27 @@ class GroupProject {
 				frame.add(searchBar);
 				JTextArea results = new JTextArea("Results");
 				results.setBounds(30, 220, 100, 20);
+					
+					
+				 search.addActionListener(new ActionListener() {
+              			  @Override
+               		 public void actionPerformed(ActionEvent e) {
+                	    for (int i=0; i<ReadcsvData.size();i++)
+                    		{
+                     		 String line2[] = new String[5];
+                       		 line2 = ReadcsvData.get(i);                            
+                      		 if (line2[0].equals(searchBar.getText()))
+                       		 {
+                            JOptionPane.showMessageDialog(frame,"ID = "+line2[0] + "\nQuantity = "+ line2[1]
+                                    + "\nWholesale Cost = " + line2[2]
+                                    + "\nSale Price = " + line2[3]
+                                    + "\nSupplier ID = " + line2[4]);                    
+                      		  }
+                  	  }
+             	   }
+       	   }); 		
+					
+						
 				frame.add(results);
 
 				JButton delete = new JButton("Delete");
