@@ -1,5 +1,10 @@
 import java.io.*;
 import java.util.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
+import javax.swing.*;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -9,6 +14,11 @@ import javax.swing.JTextField;
 
 class GroupProject {
 
+	public static List<String[]> ReadcsvData;
+    public GroupProject(List<String[]> ReadcsvData) {
+        ReadcsvData = new ArrayList<String[]>();;
+    }
+	
 		private static boolean userpass(String exist, String user, String pass) throws IOException {
 			List<String[]> userpass = passdoc("passdoc.csv");
 			if (exist.toLowerCase().contains("yes")) {
@@ -44,6 +54,7 @@ class GroupProject {
 	
 
 	public static void maniplation(List<String[]> csvData) throws IOException {
+		ReadcsvData = csvData;
 		String line = null;
 		Scanner scanner = null;
 		int index = 0;
