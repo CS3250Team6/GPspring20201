@@ -4,8 +4,11 @@
 1.3) Be able to update an existing file.
 1.4) Be able to delete an existing file.
 
-2) Build a MYSQL database.
+2) Build a MYSQL database.(On hold for the moment to focus on Reworking code)
 
 3) Make the crud opperations work with the new database.
 
 4) Have a gui that uses the crud opperations.
+4.1)Connecting buttons to manipulate Csv File
+
+5)Initiative 1-B Update inventory DB through customer/buyer events 
