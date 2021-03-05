@@ -1,4 +1,3 @@
 # GPspring2021
 where all of the code for the semester will be for team 6
-Some of the Changes I have made for the Code are commented in the code but for a more detailed breakdown of what I have done i will leave it here 
-The first change I made was making a method called reader to read the csv file "inventory_team6" into the array list. This is hard coded at the moment but i can change the type of method to make this not hard coded. Then next change that I made was creating a meathod called adder this adds any set of data into the array list. One of the most important additions in both of these methods is the fact that there is a sixth data point that is what shows if this has been deleted or not so it either says "is in this data list" or it isnt I have not added the deletion method yet so i can do this without physically taking the data out of the list to keep records if there was a mistake.
+
