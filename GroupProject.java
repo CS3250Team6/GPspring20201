@@ -8,65 +8,29 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 class GroupProject {
-	private void addUser()
-	{ 
-	boolean isIDUnique = true;
-	for (userEmail userName: csvData) {
-	   if (user.getId().compareToIgnoreCase(idTextField.getText())==0);
-{
-isIDUnique = false;
-}
-if (isIDUnique == false) {
-JOptionPane.showMessageDialog(null, "Error: A user ID is already in the database");
-}	   
-}
-else {
-     csvData.add(new userEmail(nameTextField.getText(), idTextField.getText()));
-     //displayAll();
-     userTextArea.setText ("");
-     for (userEmail user: csvData){
-     userTextArea.append(user + "\n");
-     }
- }
-    
-}
-  private void exitApplication(){
-    system.exit(0);
-  }
-  public class userEmail{
-    public static final string EAIL_USER = "@my.email";
-    private string name;
-    private string id;
-    
-    public UserEmail(){
-        name = "";
-        id   = "";
-        
-    }
-    public userEmail(string name, string id){
-      this.name = name;
-      this.id = id;
-    }
-    public string getName(){
-       return name;
-    
-    }
-    public string gitID(){
-       return id;
-    }
-    public void setName(string Name){
-       this.name = name;
-       
-    }
-    public void setId(string Id){
-       this.id = id;
-       
-    }
-    public string toString(){
-       return id + "\t" + name + "\t" + id + EMAIL_USER;
-    }
-  }
-
+	private class addData extends JFrame {
+	      while ( cont2 == true) {
+		    add.addActionListner = new ActionListener() {
+			 @override
+			public void actionPerformed(ActionEvent ae){
+				add.JOptionPane.showMessageDialog(rootPane,"Pressed the Button");
+			   JPanel flowPanel = new JPanel(new FlowLayout(FlowLayout.TOP,BOTTOM,CENTER,CENTER,CENTER));
+				flowPanel.add(itemId);
+				flowPanel.add(itemIdTextField);
+				flowPanel.add(quantity);
+				flowPanel.add(quantityTextField);
+				flowPanel.add(wholsaleCost);
+				flowPanel.add(wholesaleCostTextField);
+				flowPanel.add(salePrice);
+				flowPanel.add(salePriceTextField);
+				flowPanel.add(supplierID);
+				flowPanel.add(supplierIDTextField);
+				
+				
+			}
+		    }
+	      }
+	}
 	
 	public static void main(String[] args) throws IOException {
 
