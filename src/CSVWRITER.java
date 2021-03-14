@@ -15,7 +15,7 @@ public class CSVWRITER {
 
 			while (j < csvData.get(i).length) {
 				String[] temp = csvData.get(i);
-				if (j == 4) {
+				if (j ==csvData.get(i).length - 1) {
 					writer.append(temp[j] + "\n");
 					j++;
 
