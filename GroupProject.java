@@ -8,13 +8,20 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 class GroupProject {
-	private class addData extends JFrame {
-	      while ( cont2 == true) {
+	
+	
+class addData extends JFrame {
+	      
 		    add.addActionListner = new ActionListener() {
+			    List<String>temp;
 			 @override
 			public void actionPerformed(ActionEvent ae){
-				add.JOptionPane.showMessageDialog(rootPane,"Pressed the Button");
-			   JPanel flowPanel = new JPanel(new FlowLayout(FlowLayout.TOP,BOTTOM,CENTER,CENTER,CENTER));
+				temp = manipulation.add(csvData,itemID.getText(),quantity.getText(),wholesaleCost.getText(),salePrice.getText(),suplierID.getTwxt());
+				try{
+					CSVWRITER.CSVWRITER("test1",temp);
+					
+			   JPanel flowPanel = new JPanel(new FlowLayout(FlowLayout.LEFT,RIGHT,CENTER,TOP, BOTTOM);
+			
 				flowPanel.add(itemId);
 				flowPanel.add(itemIdTextField);
 				flowPanel.add(quantity);
@@ -25,6 +32,16 @@ class GroupProject {
 				flowPanel.add(salePriceTextField);
 				flowPanel.add(supplierID);
 				flowPanel.add(supplierIDTextField);
+							 
+				}catch(ioException el) {
+					if (CSVWRITER.CSVWRITER("test1",temp) == -1){
+						System.out.println("CSV writer database file not found")
+					}
+					e1.printStackTrace();
+				}
+			 }
+							 
+		
 				
 				
 			}
