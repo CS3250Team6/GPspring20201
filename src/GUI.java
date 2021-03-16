@@ -26,7 +26,50 @@ public class GUI {
         JTextField suplierID = new JTextField("Enter Supplier ID");
         suplierID.setBounds(30, 140, 100, 20);
         frame.add(suplierID);
+        
+        
+        add.addActionListener(new ActionListener() {
+            List<String[]> csvData;
 
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // TODO Auto-generated method stub
+
+
+                manipulation.add(csvData,
+                        itemID.getText(),
+                        quantity.getText(),
+                        wholesaleCost.getText(),
+                        salePrice.getText(),
+                        suplierID.getText());
+            }
+
+        });
+        add.addActionListener(new ActionListener() {
+            List<String[]> temp;
+            List<String[]> csvData;
+
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // TODO Auto-generated method stub
+                temp = manipulation.add(csvData,
+                        itemID.getText(),
+                        quantity.getText(),
+                        wholesaleCost.getText(),
+                        salePrice.getText(),
+                        suplierID.getText());
+                try {
+                    CSVWRITER.CSVWRITER("test1", temp);
+                } catch (IOException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+            }
+
+        });
+        
+        
         JButton search = new JButton("Search");
         search.setBounds(30, 180, 100, 20);
         frame.add(search);
@@ -36,6 +79,46 @@ public class GUI {
         JTextArea results = new JTextArea("Results");
         results.setBounds(30, 220, 100, 20);
         frame.add(results);
+        
+        
+        search.addActionListener(new ActionListener() {
+            List<String[]> csvData;
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // TODO Auto-generated method stub
+
+                manipulation.search(csvData,
+                        searchBar.getText(),
+                        results.getText()
+                );
+            }
+
+        });
+
+        search.addActionListener(new ActionListener() {
+            List<String[]> temp;
+            List<String[]> csvData;
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // TODO Auto-generated method stub
+                temp = manipulation.search(csvData,
+                        searchBar.getText(),
+                        results.getText()
+                );
+                try {
+                    CSVWRITER.CSVWRITER("test1", temp);
+                } catch (IOException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+
+            }
+
+
+        });
+        
 
         JButton delete = new JButton("Delete");
         delete.setBounds(30, 260, 100, 20);
@@ -43,6 +126,42 @@ public class GUI {
         JTextField deleteSearch = new JTextField("Enter Sale Price");
         deleteSearch.setBounds(30, 280, 100, 20);
         frame.add(deleteSearch);
+        
+        
+         delete.addActionListener(new ActionListener() {
+            List<String[]> csvData;
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // TODO Auto-generated method stub
+
+                manipulation.delte(csvData,
+                        deleteSearch.getText()
+                        );
+            }
+
+
+        });
+
+            delete.addActionListener(new ActionListener() {
+                List<String[]> temp;
+                List<String[]> csvData;
+
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    // TODO Auto-generated method stub
+                    temp = manipulation.delte(csvData,deleteSearch.getText());
+                    try {
+                        CSVWRITER.CSVWRITER("test1", temp);
+                    } catch (IOException e1) {
+                        // TODO Auto-generated catch block
+                        e1.printStackTrace();
+                    }
+
+                }
+
+            });
+        
 
         JButton update = new JButton("Update");
         update.setBounds(30, 320, 100, 20);
@@ -62,6 +181,51 @@ public class GUI {
         JTextField updateSuplierID = new JTextField("Enter Supplier ID");
         updateSuplierID.setBounds(30, 420, 100, 20);
         frame.add(updateSuplierID);
+        
+        update.addActionListener(new ActionListener() {
+            List<String[]> csvData;
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // TODO Auto-generated method stub
+
+                manipulation.updateall(csvData,
+                        updateItemID.getText(),
+                        updateQuantity.getText(),
+                        updateWholesaleCost.getText(),
+                        updateSalePrice.getText(),
+                        updateSuplierID.getText()
+                );
+            }
+
+        });
+
+        update.addActionListener(new ActionListener() {
+            List<String[]> temp;
+            List<String[]> csvData;
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // TODO Auto-generated method stub
+                temp = manipulation.updateall(csvData,
+                        updateItemID.getText(),
+                        updateQuantity.getText(),
+                        updateWholesaleCost.getText(),
+                        updateSalePrice.getText(),
+                        updateSuplierID.getText()
+                );
+                try {
+                    CSVWRITER.CSVWRITER("test1", temp);
+                } catch (IOException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
+                }
+
+            }
+
+
+        });
+        
         frame.add(pane);
         frame.setVisible(true);
         System.out.println("do you want to do something else");
