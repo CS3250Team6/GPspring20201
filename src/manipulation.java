@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class manipulation {
 
 	public static List<String[]> add(List<String[]> csvData, String prodid, String quantity, String wholesale,
-			String sale, String supplier) {
+			String sale, String supplier) throws IOException {
 
 		/**
 		 * This method is the main method for manipulation of data in the array list The
@@ -26,14 +26,24 @@ public class manipulation {
 		line2[4] = supplier;
 
 		csvData.add(line2);
+		CSVWRITER.CSVWRITER("inventory_team6.csv", csvData);
 		return csvData;
 	}
 
 	public static String[] search(List<String[]> csvData, String prodid) {
-		int temp = csvData.indexOf(prodid);
-		String ret[] = new String[5];
-		ret = csvData.get(temp);
-		return ret;
+		String[] temp = new String[5];
+		for (int i = 0; i < csvData.size(); i++) {
+
+			String id = prodid;
+			String line2[] = new String[5];
+			line2 = csvData.get(i);
+			if (id.equals(line2[0])) {
+				temp = csvData.get(i);
+				return temp;
+			}
+		}
+		return temp;
+
 	}
 
 	public static List<String[]> update(List<String[]> csvData, String prodId, String colupdate, String update) {
@@ -71,22 +81,37 @@ public class manipulation {
 	 */
 	public static List<String[]> updateall(List<String[]> csvData, String prodid, String quantity, String wholesale,
 			String sale, String supplier) {
-		int index = csvData.indexOf(prodid);
+		String[] temp = new String[5];
+		int iterator = 0;
+		for (int i = 0; i < csvData.size(); i++) {
+
+			String id = prodid;
+			String line2[] = new String[5];
+			line2 = csvData.get(i);
+			if (id.equals(line2[0])) {
+				temp = csvData.get(i);
+				iterator = i;
+				break;
+			}
+		}
 		String ret[] = new String[5];
 		ret[0] = prodid;
 		ret[1] = quantity;
 		ret[2] = wholesale;
 		ret[3] = sale;
 		ret[4] = supplier;
-		csvData.set(index, ret);
+		csvData.set(iterator, ret);
 
 		return csvData;
 
 	}
-	public static List<String[]> delte (List<String[]> csvData, String prodid){
-		
+
+	public static List<String[]> delete(List<String[]> csvData, String prodid) {
+
 		csvData.remove(csvData.indexOf(prodid));
 		return csvData;
-		
+
 	}
 }
+
+
