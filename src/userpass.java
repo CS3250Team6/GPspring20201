@@ -41,6 +41,7 @@ public class userpass {
 				CSVWRITER.CSVWRITER("passdoc.csv", userpass);
 				System.out.println("made a new user for testing check passdoc.csv");
 				i++;
+				return false;
 			} else {
 				System.out.println("error");
 				System.exit(1);
