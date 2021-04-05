@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<!--This is a comment -->
+
+<--Html code goes in the body -->
+<body>
+<-- This is the javascript caller -->
+<script> </script>
+
+<-- How to add an immage -->
+<-- <img src=""> -->
+
+<h1>Heading</h1>
+<p>Where paragraphs go</p>
+
+</body>
+
+</html>

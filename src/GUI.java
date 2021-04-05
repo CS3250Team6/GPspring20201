@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 
 public class GUI {
 
+
 	public static void createGUI() throws IOException {
 		List<String[]> csvData = reader.reader();
 		JFrame frame = new JFrame();
