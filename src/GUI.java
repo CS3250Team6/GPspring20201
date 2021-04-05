@@ -1,3 +1,4 @@
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
@@ -22,7 +23,7 @@ public class GUI {
 		JButton add = new JButton("Add Data");
 		add.setBounds(30, 40, 100, 20);
 		frame.add(add);
-		JTextField itemID = new JTextField("Enter ID");
+		JTextField itemID = new JTextField("Enter Product ID");
 		itemID.setBounds(30, 60, 100, 20);
 		frame.add(itemID);
 		JTextField quantity = new JTextField("Enter Quantity");
@@ -65,7 +66,7 @@ public class GUI {
 		JButton search = new JButton("Search");
 		search.setBounds(30, 180, 100, 20);
 		frame.add(search);
-		JTextField searchBar = new JTextField("Enter ID");
+		JTextField searchBar = new JTextField("Enter Product ID");
 		searchBar.setBounds(30, 200, 100, 20);
 		frame.add(searchBar);
 		JTextArea results = new JTextArea("Results");
@@ -92,22 +93,20 @@ public class GUI {
 		frame.add(deleteSearch);
 		delete.addActionListener(new ActionListener() {
 			String[] temp = new String[5];
-			List<String[]> temp1;
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				temp = manipulation.search(csvData, deleteSearch.getText());
-				temp1 = manipulation.delete(csvData, deleteSearch.getText());
-				System.out.println("Deleted " + Arrays.deepToString(temp));
+				temp = manipulation.search(csvData, deleteSearch.getText().toString());
 				try {
-					CSVWRITER.CSVWRITER("inventory_team6.csv", temp1);
+					manipulation.delete(csvData, deleteSearch.getText().toString());
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				System.out.println("Deleted" + Arrays.deepToString(temp));
+				
 			}
-
 		});
 
 		JButton update = new JButton("Update");
