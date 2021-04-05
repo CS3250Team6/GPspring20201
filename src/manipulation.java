@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -106,12 +107,23 @@ public class manipulation {
 
 	}
 
-	public static List<String[]> delete(List<String[]> csvData, String prodid) {
+	public static List<String[]> delete(List<String[]> csvData, String prodid) throws IOException {
 
-		csvData.remove(csvData.indexOf(prodid));
+		String[] temp = new String[5];
+		for (int i = 0; i < csvData.size(); i++) {
+
+			String id = prodid;
+			String line2[] = new String[5];
+			line2 = csvData.get(i);
+			if (id.equals(line2[0])) {
+			
+				csvData.remove(i);
+				CSVWRITER.CSVWRITER("inventory_team6.csv", csvData);
+				return csvData;
+			}
+
+		}
 		return csvData;
-
 	}
 }
-
 
