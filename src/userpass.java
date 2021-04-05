@@ -35,14 +35,32 @@ public class userpass {
 				}
 			} else if (exist.toLowerCase().contains("no")) {
 				String[] temp = new String[2];
+				String[] line2 = new String[2];
 				temp[0] = user;
 				temp[1] = pass;
-				userpass.add(temp);
-				CSVWRITER.CSVWRITER("passdoc.csv", userpass);
-				System.out.println("made a new user for testing check passdoc.csv");
-				i++;
-				return false;
-			} else {
+				int j = 0;
+//				System.out.println(Arrays.deepToString(temp));
+//				System.out.println(Arrays.deepToString(userpass.toArray()));
+//				System.out.println(userpass.contains(temp));
+				while(j < userpass.size()) {
+					line2 = userpass.get(j);
+					if(line2[0].toString().equals(user)) {
+					System.out.println("account exists");
+					j++;
+					return false;
+					
+				}
+				else{
+					userpass.add(temp);
+					CSVWRITER.CSVWRITER("passdoc.csv", userpass);
+					System.out.println("made a new user for testing check passdoc.csv");
+					
+					return false;
+				}
+				
+				}
+				j++;
+				} else {
 				System.out.println("error");
 				System.exit(1);
 			}
@@ -98,3 +116,4 @@ public class userpass {
 	}
 
 }
+
