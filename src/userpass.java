@@ -12,13 +12,10 @@ import javax.swing.JFrame;
 public class userpass {
 	static boolean userpass(String exist, String user, String pass) throws IOException {
 		List<String[]> userpass = passdoc("passdoc.csv");
-		int i = 0;
-
-		while (i < userpass.size())
+		for(int i =0; i <userpass.size(); i++) {
 			if (exist.toLowerCase().contains("yes")) {
 				userpass = passdoc("passdoc.csv");
-				
-				
+
 				int username;
 				int password;
 				String[] temp = new String[2];
@@ -30,8 +27,7 @@ public class userpass {
 					System.out.println("you are a user");
 					return true;
 				} else {
-					System.out.println("not a user");
-					return false;
+					
 				}
 			} else if (exist.toLowerCase().contains("no")) {
 				String[] temp = new String[2];
@@ -42,30 +38,31 @@ public class userpass {
 //				System.out.println(Arrays.deepToString(temp));
 //				System.out.println(Arrays.deepToString(userpass.toArray()));
 //				System.out.println(userpass.contains(temp));
-				while(j < userpass.size()) {
+				while (j < userpass.size()) {
 					line2 = userpass.get(j);
-					if(line2[0].toString().equals(user)) {
-					System.out.println("account exists");
-					j++;
-					return false;
-					
-				}
-				else{
-					userpass.add(temp);
-					CSVWRITER.CSVWRITER("passdoc.csv", userpass);
-					System.out.println("made a new user for testing check passdoc.csv");
-					
-					return false;
-				}
-				
+					if (line2[0].toString().equals(user)) {
+						System.out.println("account exists");
+						j++;
+						return false;
+
+					} else {
+						userpass.add(temp);
+						CSVWRITER.CSVWRITER("passdoc.csv", userpass);
+						System.out.println("made a new user for testing check passdoc.csv");
+
+						return false;
+					}
+
 				}
 				j++;
-				} else {
+			} else {
 				System.out.println("error");
 				System.exit(1);
 			}
-		return false;
+			
 
+		}
+		return false;
 	}
 
 	public static List<String[]> passdoc(String filename) throws IOException {
