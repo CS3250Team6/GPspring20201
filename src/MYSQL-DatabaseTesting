@@ -1,0 +1,10 @@
+USE inventory_team6;
+
+
+
+
+
+
+
+
+ SELECT * FROM inventory_team6.inventory_team6;
