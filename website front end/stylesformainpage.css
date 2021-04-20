@@ -1,12 +1,39 @@
 h2{
     text-align: left;
-    background-color: grey;
+    background-color: black;
     display: inline;
     padding: 10px;
 }
 a{
     padding: 11.5px;
-    background-color: grey;
-    margin-right: 100px;
+    background-color: black;
+    margin-right: -10px;
     
-}
+}.topnav {
+    background-color:black;
+    overflow: hidden;
+  }
+  
+
+  .topnav a {
+    float: left;
+    color: green;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+ 
+  .topnav a:hover {
+    background-color:grey;
+    color: black;
+  }
+  
+  
+  .topnav a.active {
+    background-color: black;
+    color: green;
+  }body{
+      background-color: bisque;
+  }
