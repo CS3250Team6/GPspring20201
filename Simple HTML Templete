@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        header{
+        background:blue;
+            background-color:black;
+            color:white;
+        }
+        
+    </style>
+
+    <body>
+
+</body>
+    <header>
+
+        <menu>
+            <nav>
+                <span>Home</span>
+                <span>Add</span>
+                <span>Read</span>
+                <span>Update</span>
+                <span>Delete</span>
+
+
+            </nav>
+        </menu>
+
+    </header>
+    <title>Login</title>
+
+    <img src="back_ground.jpg" width="720"/>
+</head>
+
+<div
+        style="text-align:left;width:1500px;height:100px;border:1px solid #000; margin:10 auto;">Example:
+    <p>This can be set to a menu bar to help organize actions</p>
+</div>
+<div
+
+        style="text-align:center;width:800px;height:800px;border:1px solid #000; margin:0 auto;">Example:
+    <form>
+        <input type="text">
+    </form>
+    <p> we can place our methods such as Read,Add,Update, and delete in this box </p>
+
+</div>
+<div
+        style="text-align:left;width:1500px;height:100px;border:1px solid #000; margin:10 auto;">Example:
+    <p>Additional Features if needed</p>
+</div>
+
+
+
+</html>
