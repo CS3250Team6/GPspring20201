@@ -6,11 +6,13 @@ function App() {
   // 2 constants that allow a user to register
   const [usernameReg, setUsernameReg] = useState('');
   const [passwordReg, setPasswordReg] = useState('');
+  const [locationReg, setLocationReg] = useState('');
 
     // 2 constants that check if the user exists
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
+    // const to check user status
     const [loginStatus, setLoginStatus] = useState('')
 
   // function to send the data from the front end to 
@@ -22,6 +24,7 @@ function App() {
       // these 2 will be used on the back end
       username: usernameReg, 
       password: passwordReg, 
+      location: locationReg,
       // here we make a promise and pass it response
       // then console.log the response so we can see
       // if there is an error
@@ -69,6 +72,13 @@ function App() {
       setPasswordReg(e.target.value);
       }}
       ></input>
+      <label>Location</label>
+      <input
+      type="text"
+      onChange={(e) => {
+        setLocationReg(e.target.value);
+      }}
+      ></input>
       {/* 
       set onclick for this button to call the 
       register const function
@@ -98,3 +108,4 @@ function App() {
 }
 
 export default App;
+
