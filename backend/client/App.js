@@ -140,7 +140,13 @@ function App() {
           );
         })}
       </div>
-      
+            
+      <div className="under20">
+        <h1>Deals Under 20</h1>
+        <button onClick={readItem}>Search</button>
+
+      </div>
+
 
       </div>
   );
