@@ -68,6 +68,27 @@ app.post('/api/read', (req, res) => {
     });
 });
 
+//Finds if there are any products under $20
+app.post('/api/under20', (req,res) =>{
+
+    const salePrice = req.body.saleprice;
+
+    db.query(
+        "SELECT * FROM inventory_team_six WHERE productid = ?",
+    (saleprice), 
+    (err, result) => {
+        if (err) {
+        res.send({err: err});
+        }
+
+        if (result.salePrice < 20) {
+            res.send(result);
+        } else {
+            res.send({message: "No product found."});
+        }
+    });
+
+
 /*
 // Trying to get it to accept one variable and display
 // the data in that row. Not working
