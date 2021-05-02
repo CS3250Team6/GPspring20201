@@ -1,0 +1,43 @@
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class readerTest {
+
+    private static final String FILE_PATH = "inventory_test.csv";
+
+    @BeforeEach
+    public void setup() throws IOException {
+        manipulation.add(FILE_PATH, stubHeadings(), "ABC", "100", "8", "10", "test");
+    }
+
+    @Test
+    public void testAdd() throws IOException {
+        List<String[]> list = reader.reader(FILE_PATH);
+        Assertions.assertNotNull(list);
+        Assertions.assertEquals(2, list.size());
+        Assertions.assertEquals(list.get(1)[0], "ABC");
+        Assertions.assertEquals(list.get(1)[1], "100");
+        Assertions.assertEquals(list.get(1)[2], "8");
+        Assertions.assertEquals(list.get(1)[3], "10");
+        Assertions.assertEquals(list.get(1)[4], "test");
+    }
+
+    private List<String[]> stubHeadings(){
+        List<String[]> data = new ArrayList<>();
+        String[] heading = {
+            "product_id",
+            "quantity",
+            "wholesale_cost",
+            "sale_price",
+            "supplier_id"
+        };
+        data.add(heading);
+        return data;
+    }
+
+}
