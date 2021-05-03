@@ -35,5 +35,9 @@ a{
     background-color: black;
     color: green;
   }body{
-      background-color: bisque;
+    background:linear-gradient(bisque, white);
+    
+  }::placeholder{
+    color:  grey;
+
   }
