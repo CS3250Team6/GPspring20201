@@ -1,0 +1,17 @@
+Open a new folder in vs Code
+Create 2 new folders one client, and one server
+In client open a termianal and cd into client.
+In client run the command "npx create-react-app ."
+This will create a react boiler plate application.
+Run the command "npm install Axios" if that does not work use a lower case a instead
+Copy the code from the git into the files that are in client
+Delete all other files on vs code in the src file in client that were not on the git. Leave all files that are not in the src file alone
+To run a react site use command "npm start"
+
+
+cd into the server file
+In server run the command "npm init" to initilize a .json file
+Create a file named index.js
+Run the command "npm install mysql cors nodemon body-parser express"
+Copy all of the files from the git and leave the rest of the files on vs code there
+To run the server use command "npm run devStart"
