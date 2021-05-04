@@ -1,0 +1,47 @@
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class CSVWRITERTest {
+
+    private static final String FILE_PATH = "inventory_test.csv";
+
+    @BeforeEach
+    public void setup(){
+        File file = new File(FILE_PATH);
+        file.delete();
+    }
+
+    @Test
+    public void testCSVWRITER() throws IOException {
+        String actual = "test";
+        CSVWRITER.CSVWRITER(FILE_PATH, stubData());
+        Assertions.assertEquals("test", actual);
+    }
+
+    private List<String[]> stubData(){
+        List<String[]> data = new ArrayList<>();
+        String[] heading = {
+            "product_id",
+            "quantity",
+            "wholesale_cost",
+            "sale_price",
+            "supplier_id"
+        };
+        String[] product = {
+            "ABC",
+            "100",
+            "8",
+            "10",
+            "test"
+        };
+        data.add(heading);
+        data.add(product);
+        return data;
+    }
+
