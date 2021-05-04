@@ -1,0 +1,43 @@
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
+import java.util.List;
+
+public class userpassTest {
+
+    private static final String FILE_PATH = "passdoc_test.csv";
+
+    @Test
+    public void testPassdoc() throws IOException {
+        List<String[]> list = userpass.passdoc(FILE_PATH);
+        Assertions.assertNotNull(list);
+        Assertions.assertEquals("test", list.get(0)[0]);
+        Assertions.assertEquals("test", list.get(0)[1]);
+    }
+
+    @Test
+    public void testUserpass_Yes_Exist() throws IOException {
+        boolean userExist =  userpass.userpass(FILE_PATH, "yes", "test", "test");
+        Assertions.assertTrue(userExist);
+    }
+
+    @Test
+    public void testUserpass_Yes_NotExist() throws IOException {
+        boolean userExist =  userpass.userpass(FILE_PATH, "yes", "test", "1234");
+        Assertions.assertFalse(userExist);
+    }
+
+    @Test
+    public void testUserpas_No_Not_Exist() throws IOException {
+        boolean userExist =  userpass.userpass(FILE_PATH, "no", "hello", "hello123");
+        Assertions.assertFalse(userExist);
+    }
+
+    @Test
+    public void testUserpas_No_Exist() throws IOException {
+        boolean userExist =  userpass.userpass(FILE_PATH, "no", "test", "test");
+        Assertions.assertFalse(userExist);
+    }
+
+}
